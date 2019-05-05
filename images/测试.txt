@@ -1,0 +1,12 @@
+https://api.douban.com/v2/movie/in_theaters 电影
+https://api.douban.com/v2/movie/coming_soon 即将上映
+https://api.douban.com/v2/movie/top250      前250
+
+
+search 
+https://api.douban.com/v2/movie/search?q="" 搜索
+
+
+https://api.douban.com/v2/movie/subject/1764796 详情
+
+

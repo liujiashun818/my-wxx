@@ -1,0 +1,26 @@
+<view>
+  <view class='search'>
+    <view class='search-bar'>
+      <input type='text' bindinput='valToSearch' />
+    </view>
+  </view>
+  <view>
+    <view wx:if='{{flag}}'>
+      <view>
+        <text>历史记录</text>
+        <text>清楚历史 </text>
+      </view>
+    </view>
+    <view class='search-page-movies' wx:else >
+      <block wx:for="{{movies}}" wx:for-item="movies">
+        <view class='search-page-container'>
+          <image src='{{movies.image}}' class='search-page-img'></image>
+          <view class='search-content'>
+            <text>{{movies.title}}</text>
+            <text class='search-page-text'>{{movies.average}}/{{movies.year}}</text>
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+</view>

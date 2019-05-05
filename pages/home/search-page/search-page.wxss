@@ -1,0 +1,32 @@
+/* pages/home/search-page/search-page.wxss */
+page{
+  background: white;
+}
+.search{
+  background: #41be57;
+  padding: 28rpx 20rpx;
+}
+.search-bar{
+  height: 58rpx;
+  background: white;
+  border-radius: 10px; 
+}
+.search-page-img{
+  width: 68rpx;
+  height: 80rpx;
+}
+.search-page-container{
+  display: flex;
+  flex-direction: row;
+  padding: 20rpx 25rpx;
+  border-bottom: 1px solid gainsboro;
+  color: #999;
+
+}
+.search-page-content, .search-page-movies{
+  display: flex;
+  flex-direction: column; 
+}
+.search-page-text{
+  color: gainsboro
+}

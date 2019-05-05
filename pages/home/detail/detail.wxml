@@ -1,0 +1,10 @@
+<import src="../search/search.wxml"/>
+<import src="../movie-item/movie-item.wxml"/>
+<template is="search"></template>
+<scroll-view scroll-y="{{true}}" style="height:1200rpx;" bindscrolltolower="lazyLoad">
+<view class="detail-container">
+    <block wx:for="{{movies}}">
+        <template is="movie-item" data="{{...item}}"></template>
+    </block>
+</view> 
+</scroll-view>

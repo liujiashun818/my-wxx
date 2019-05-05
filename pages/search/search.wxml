@@ -1,0 +1,7 @@
+<template name="search">
+  <view class='search'>
+    <view class='search-bar'>
+      <icon type='search' size='16'></icon>
+    </view>
+  </view>
+</template>

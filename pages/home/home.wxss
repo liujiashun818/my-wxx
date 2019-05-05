@@ -1,0 +1,5 @@
+/* pages/home/home.wxss */
+@import './search/search.wxss';
+@import './movie-item/movie-item.wxss';
+@import './movie-list/movie-list.wxss';
+@import './start/start.wxss';

@@ -1,0 +1,9 @@
+
+<import src='../start/start.wxml'/>
+<template name='movie-item'>
+    <view class='movie-item'>
+      <image src='{{images}}' class='movie-item-img'></image>
+      <text class='movie-item-title'>{{title}}</text>
+      <template is='start' data='{{...rating}}'></template>
+    </view>
+</template>

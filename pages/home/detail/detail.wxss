@@ -1,0 +1,10 @@
+@import '../search/search.wxss';
+@import '../movie-item/movie-item.wxss';
+@import '../start/start.wxss';
+.detail-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 648rpx;
+    margin: 40rpx 43rpx 0 59rpx;
+}
