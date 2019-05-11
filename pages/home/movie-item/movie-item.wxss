@@ -1,5 +1,5 @@
 .movie-item-img{
-  width: 200rpx;
+  width: 202rpx;
   height: 285rpx;
 }
 .movie-item{

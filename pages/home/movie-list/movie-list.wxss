@@ -4,7 +4,7 @@
 }
 .movie-list{
   margin: 0 auto;
-  width: 648rpx;
+  width: 646rpx;
 }
 .movie-list-bg{
   background: white;

@@ -1,7 +1,7 @@
 
 <import src='../start/start.wxml'/>
 <template name='movie-item'>
-    <view class='movie-item'>
+    <view class='movie-item' bindtap='bindToDetail' data-mid="{{id}}">
       <image src='{{images}}' class='movie-item-img'></image>
       <text class='movie-item-title'>{{title}}</text>
       <template is='start' data='{{...rating}}'></template>

@@ -9,7 +9,7 @@ Page({
   data: {
     inTeaters: {
       movies: [],
-      name: '电影'
+      name: '最近热播'
     },
     comingSoon: {
       movies: [],
@@ -17,7 +17,7 @@ Page({
     },
     top250: {
       movies: [],
-      name: 'top250'
+      name: '热搜榜'
     }
   },
   bindToSearch(){
@@ -31,21 +31,26 @@ Page({
    */
   onLoad: function(options) {
     fetchData('https://douban.uieee.com/v2/movie/in_theaters?star=0&count=6').then((res) => {
-      this.processData(res, '电影', 'inTheaters');
+      this.processData(res, '最近热播', 'inTheaters');
     })
-    // fetchData('https://douban.uieee.com/v2/movie/coming_soon?star=0&count=6').then(res => {
-    //   this.processData(res, '即将上映', 'comingSoon');
-    // });
-    // fetchData('https://douban.uieee.com/v2/movie/top250?star=0&count=6').then(res => {
-    //   this.processData(res, 'top250', 'top250');
-    // });
+    fetchData('https://douban.uieee.com/v2/movie/coming_soon?star=0&count=6').then(res => {
+      this.processData(res, '即将上映', 'comingSoon');
+    });
+    fetchData('https://douban.uieee.com/v2/movie/top250?star=0&count=6').then(res => {
+      this.processData(res, '热搜榜', 'top250');
+    });
   },
   bindToMore(e) {
     var val = e.currentTarget.dataset.more;
-    console.log('val', val);
     wx.navigateTo({
       url: 'detail/detail?type=' + val,
     });
+  },
+  bindToDetail(e){
+    var mid = e.currentTarget.dataset.mid;
+    wx.navigateTo({
+      url: 'movie-detail/movie-detail?id='+ mid,
+    })
   },
   processData(res, name, type) {
     var datas = res.data.subjects;
@@ -55,15 +60,14 @@ Page({
     var arr = [];
     for (var i = 0; i < datas.length; i++) {
       var cur = datas[i];
-      console.log('cur', cur);
-      console.log('starToArray', starToArray);
       var tmpl = {
         images: cur.images.medium,
         title: cur.title.length>6? cur.title.slice(0,6) + '...' : cur.title,
         rating: {
           stars: starToArray(cur.rating.stars),
           average: cur.rating.average
-        }
+        },
+        id: cur.id
       }
       arr.push(tmpl);
     }

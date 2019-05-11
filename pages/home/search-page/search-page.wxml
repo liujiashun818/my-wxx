@@ -1,15 +1,20 @@
 <view>
   <view class='search'>
     <view class='search-bar'>
-      <input type='text' bindinput='valToSearch' />
+      <input class='search-bar-input' type='text' bindinput='valToSearch' bindblur='saveStorge' value='{{val}}'/>
     </view>
   </view>
   <view>
     <view wx:if='{{flag}}'>
-      <view>
-        <text>历史记录</text>
-        <text>清楚历史 </text>
+      <view class='search-page-history'>
+        <text >历史记录</text>
+        <text bindtap='clearHistory'>清楚历史 </text>
       </view>
+      <block wx:for="{{historys}}">
+        <view class='search-page-history-content' bindtap='searchByHistory' data-history='{{item}}'>
+          <text bindtap=''> {{item}}</text>
+        </view>
+      </block>
     </view>
     <view class='search-page-movies' wx:else >
       <block wx:for="{{movies}}" wx:for-item="movies">

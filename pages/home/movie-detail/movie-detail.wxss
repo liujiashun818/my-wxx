@@ -1,0 +1,25 @@
+/* pages/home/movie-detail/movie-detail.wxss */
+@import '../start/start.wxss';
+page{
+  background: white;
+}
+.movie-detail-container{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background: #fff;
+  padding: 20rpx 40rpx;
+  width: 670rpx;
+}
+.movie-detail-left{
+  width: 450rpx;
+}
+.movie-detail-img{
+  width: 300rpx;
+  height: 350rpx;
+
+}
+.movie-detail-h3{
+  font-size: 45rpx;
+  line-height: 60rpx; 
+}

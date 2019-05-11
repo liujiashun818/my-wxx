@@ -7,4 +7,5 @@
     flex-wrap: wrap;
     width: 648rpx;
     margin: 40rpx 43rpx 0 59rpx;
+    
 }

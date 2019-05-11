@@ -43,8 +43,7 @@ Page({
     var arr = [];
     if (datas.length){
     for (var i = 0; i < datas.length; i++) {
-      var cur = datas[i
-      ];
+      var cur = datas[i];
       var tmpl = {
         images: cur.images.medium,
         title: cur.title.length > 6 ? cur.title.slice(0,
@@ -52,7 +51,8 @@ Page({
         rating: {
           stars: starToArray(cur.rating.stars),
           average: cur.rating.average
-        }
+        },
+        id: cur.id,
       }
       arr.push(tmpl);
     }
@@ -65,7 +65,12 @@ Page({
       movies: arr
     });
     wx.hideNavigationBarLoading()
-    console.log(arr);
+  },
+  bindToDetail(e) {
+    var mid = e.currentTarget.dataset.mid;
+    wx.navigateTo({
+      url: '../movie-detail/movie-detail?id=' + mid,
+    })
   },
   onReady: function () {
     // 页面渲染完成

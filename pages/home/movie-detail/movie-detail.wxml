@@ -1,0 +1,10 @@
+<!--pages/home/movie-detail/movie-detail.wxml-->
+<import src='../start/start.wxml'/>
+<view class='movie-detail-container'>
+  <view class='movie-detail-left'> 
+    <text class='movie-detail-h3'>{{movie.title}} </text>
+    <template is='start' data = "{{...movie.rating}}"></template>
+    <text>{{movie.summary}}</text>
+  </view>
+  <image src='{{ movie.image }}' class='movie-detail-img' bindtap='bindToBig'></image>
+</view>

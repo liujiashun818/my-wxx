@@ -7,7 +7,26 @@ Page({
    */
   data: {
     flag:true,
-    movies:[]
+    movies:[],
+    historys: [],
+    val:''
+  },
+  searchByHistory(e){
+    var val = e.currentTarget.dataset.history;
+    this.setData({
+      val,
+      flag:false
+    })
+    fetchData('https://douban.uieee.com/v2/movie/search?q=' + val).then(
+    (res) =>{
+      this.processData(res);
+    })
+  },
+  clearHistory(){
+    wx.clearStorage();
+    this.setData({
+      historys:[]
+    })
   },
   valToSearch(e){
     var val = e.detail.value;
@@ -34,7 +53,25 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var historys = wx.getStorageSync('historys') || [];
+    this.setData({
+      historys
+    })
+  },
+  saveStorge(e){
+    var val = e.detail.value;
+    // 如果输入框有值，并且历史记录中没有存储过
+    var historys = wx.getStorageSync('historys') || [];
+    var flag = historys.find((item) => {
+      return item == val;
+    })
+    if(val != '' && !flag){
+      historys.push(val);
+      wx.setStorageSync('historys', historys);
+      this.setData({
+        historys
+      })
+    }
   },
   processData(res){
     var datas = res.data.subjects;
